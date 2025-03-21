@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3f7;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        section {
+            padding: 3rem 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent-color);
+        }
+        
+        .profile-links {
+            margin-top: 1rem;
+        }
+        
+        .profile-links a {
+            margin: 0 0.5rem;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+            }
+            
+            .about-text {
+                flex: 2;
+            }
+            
+            .skills {
+                flex: 1;
+            }
+        }
+        
+        .skills ul {
+            list-style: none;
+        }
+        
+        .skills li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .project-item {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            
+            .project-img-container {
+                flex: 1;
+            }
+            
+            .project-content {
+                flex: 2;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            min-height: 150px;
+        }
+        
+        .dark-mode {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f3460;
+            --text-color: #f1f1f1;
+            --light-bg: #292929;
+            background-color: #1a1a2e;
+            color: #f1f1f1;
+        }
+        
+        .mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Your Name</h1>
+            <p>Your Position/Title | Location</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <div class="profile-section">
+                <img src="/api/placeholder/200/200" alt="Your Photo" class="profile-img">
+                <h2>About Me</h2>
+                <div class="profile-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">Resume</a>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm [Your Name], a [Your Profession] with [X years] of experience. I specialize in [Your Specialization/Skills]. I'm passionate about [Your Interests related to work].</p>
+                    <p>Throughout my career, I've focused on [Your Career Focus]. I enjoy [What you enjoy about your work] and am constantly looking to expand my knowledge and skills in [Areas of Interest].</p>
+                    <p>When I'm not working, I enjoy [Hobbies/Interests], which help me maintain a creative and fresh perspective on my professional work.</p>
+                </div>
+                
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Skill 1</li>
+                        <li>Skill 2</li>
+                        <li>Skill 3</li>
+                        <li>Skill 4</li>
+                        <li>Skill 5</li>
+                        <li>Skill 6</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Job Title</h3>
+                <h4>Company Name | Start Date - End Date</h4>
+                <p>Describe your responsibilities and achievements in this role. Focus on quantifiable results and how you contributed to the company's success. What specific projects did you work on? What skills did you develop or utilize?</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Job Title</h3>
+                <h4>Company Name | Start Date - End Date</h4>
+                <p>Describe your responsibilities and achievements in this role. Focus on quantifiable results and how you contributed to the company's success. What specific projects did you work on? What skills did you develop or utilize?</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Job Title</h3>
+                <h4>Company Name | Start Date - End Date</h4>
+                <p>Describe your responsibilities and achievements in this role. Focus on quantifiable results and how you contributed to the company's success. What specific projects did you work on? What skills did you develop or utilize?</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/300" alt="Project 1" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p>Describe the project, your role, and the technologies used. What problem did it solve? What were the challenges and how did you overcome them? Include key features and achievements.</p>
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/300" alt="Project 2" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p>Describe the project, your role, and the technologies used. What problem did it solve? What were the challenges and how did you overcome them? Include key features and achievements.</p>
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/300" alt="Project 3" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Project Name</h3>
+                    <p>Describe the project, your role, and the technologies used. What problem did it solve? What were the challenges and how did you overcome them? Include key features and achievements.</p>
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Interested in working together? Fill out the form below or reach out via email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <button class="mode-toggle" onclick="document.body.classList.toggle('dark-mode')">🌓</button>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission (placeholder)
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('This form submission is just a placeholder. In a real website, you would connect this to a backend service or email API.');
+        });
+    </script>
+</body>
+</html>
